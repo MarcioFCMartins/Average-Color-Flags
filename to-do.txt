@@ -1,0 +1,9 @@
+Expandir o projeto:
+fazer algo como: 
+https://blog.snap.uaf.edu/2015/01/26/3d-rotating-earth-in-r/
+
+- Importar raster do mapa do mundo (google maps? alternativa? Talvez um simples jpeg com a projeção cartesiana dê)
+- Plotar as bandeiras por cima, a aparecer e desaparecer (funçao que roda o globo está implementada, 
+	adicionar variável de 0 a 1 que vai controlar a opacidade
+
+Exportar imagens para o disco e depois criar .mp4. Ver "Animated 2d maps...."
