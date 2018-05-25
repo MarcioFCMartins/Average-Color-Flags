@@ -104,7 +104,24 @@ map_colors <- world_region_colors$color
 names(map_colors) <- world_region_colors$region
 map_colors[is.na(map_colors)] <- "grey" #Make NAs grey
 
-####Plot and animate map####
+####Maps####
+#Static Mercator map
+ggsave(filename = "./2d_map.png",
+       plot = ggplot() +
+         geom_polygon(data = world, aes(x = long, y = lat, group = group, fill = region),color = "black", size = 0.5) +
+         scale_fill_manual(values = map_colors) +
+         labs(title = "Average flag color per country", 
+              subtitle = "Weighted per area", 
+              x = NULL, 
+              y = NULL,
+              caption = "Source: Gallery of sovereign state flags, Wikipedia") +
+         coord_quickmap() +
+         theme_bw() +
+         theme(legend.position = "none", 
+               panel.grid.major = element_line(linetype = 1, color = "#cccccc", size = 1)),
+       type = "cairo-png",
+       height = 10,
+       width = 19)
 #Export the maps with a rotation of 1 degree per frame
 for(angle in seq(1,360,by = 1)){
   ggsave(filename = paste0("./plots/globe",formatC(angle, width = 3, flag = "0"),".png"),
